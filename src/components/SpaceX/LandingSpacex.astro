@@ -1,0 +1,202 @@
+---
+import LogoSpacex from "../logoSpacex.astro";
+---
+
+<header
+  id="landing-header"
+  class="flex items-center py-8 px-12 max-w-[1400px] mx-auto h-10 fixed top-0 z-20 text-black xl:flex xl:item-center pt-12 pl-[70px]"
+>
+  <a
+    class="fixed top-5 left-[50%] -ml-20 xl:mr-10 xl:relative xl:top-auto xl:left-auto xl:ml-auto xl:w-[200px]"
+  >
+    <LogoSpacex />
+  </a>
+
+  <nav class="hidden pt-5 pl-5 items-center space-x-8 xl:block">
+    <ul
+      class="flex uppercase text-white [&>a]:no-underline [&>a]:space-x-8 [&>a]:font-din-bold [&>a]:mx-3 [&>a]:relative"
+    >
+      <a class="link-underline" href="#Falcon 9">FALCON 9</a>
+      <a class="link-underline" href="#Falcon Heavy">FALCON HEACY</a>
+      <a class="link-underline" href="#Dragon">DRAGON</a>
+      <a class="link-underline" href="#Starship">STARSHIP</a>
+      <a class="link-underline" href="#HumanSpaceflight">HUMAN SPACEFLIGHT</a>
+      <a class="link-underline" href="#Rideshare">RIDERSHARE</a>
+      <a class="link-underline" href="#Starshield">STARSHIELD</a>
+      <a class="link-underline" href="#Starlink">STARLINK</a>
+    </ul>
+  </nav>
+  <nav class="fixed right-20 top-[45px] items-center xl:block">
+    <ul
+      class="[&>a]:hidden [&>a]:xl:block uppercase text-white [&>a]:no-underline [&>a]:space-x-8 [&>a]:font-din-bold [&>a]:mx-3 [&>a]:relative"
+    >
+      <a class="link-underline" href="#">SHOP</a>
+    </ul>
+  </nav>
+</header>
+
+<div class="shadow hidden fixed inset-0 bg-black bg-opacity-30 z-20"></div>
+<button
+  class="hamburger fixed z-30 right-8 top-[30px] p-5 bg-transparent border-0 cursor-pointer"
+>
+  <span class="block w-4 h-0.5 bg-white mb-0.5 transition-all duration-200"
+  ></span>
+  <span class="block w-4 h-0.5 bg-white mb-0.5 transition-all duration-200"
+  ></span>
+  <span class="block w-4 h-0.5 bg-white transition-all duration-200"></span>
+</button>
+
+<nav
+  class="mobile-nav fixed top-0 right-[-400px] bottom-0 w-[400px] bg-black text-white z-20 pt-16 font-din-regular transition-all duration-500 ease-in-out"
+>
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right opacity-0 transition-opacity duration-500 delay-200"
+    >MISSION</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right opacity-0 transition-opacity duration-300 delay-250"
+    >LAUNCHER</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right opacity-0 transition-opacity duration-300 delay-300"
+    >CAREERS</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right opacity-0 transition-opacity duration-300 delay-350"
+    >UPDATE</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-400"
+    >Falcon 9</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-450"
+    >Falcon Heavy</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-500"
+    >Dragon</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-550"
+    >Starship</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-600"
+    >Human spaceflight</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-650"
+    >Rideshare</a
+  >
+  <a
+    href=""
+    class="block border-b mx-9 border-gray-800 uppercase p-4 text-right xl:hidden opacity-0 transition-opacity duration-300 delay-700"
+    >Starlink</a
+  >
+</nav>
+
+<style>
+  .link-underline:before {
+    content: "";
+    width: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    transition: width 0.2s linear;
+  }
+  .link-underline:hover:before {
+    right: initial;
+    left: 0;
+    width: 100%;
+  }
+  #landing-header {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .header-hidden {
+    transform: translateY(-100%);
+  }
+  .hamburger.active span:first-child,
+  .hamburger.active span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    transform: rotate(-45deg);
+    top: -4px;
+  }
+  .hamburger.active span:last-child {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let isActive = false;
+    function toggle() {
+      const hamburger = document.querySelector(".hamburger") as HTMLElement;
+      const shadow = document.querySelector(".shadow") as HTMLElement;
+      const nav = document.querySelector(".mobile-nav") as HTMLElement;
+
+      if (isActive) {
+        hamburger.classList.remove("active");
+        shadow.classList.add("hidden");
+        nav.classList.remove("right-0");
+        nav.classList.add("right-[-400px]"); // Usar Tailwind para mover el nav
+        document.querySelectorAll("nav.mobile-nav a").forEach((link, index) => {
+          const anchor = link as HTMLElement;
+          anchor.classList.add("opacity-0");
+        });
+        isActive = false;
+      } else {
+        hamburger.classList.add("active");
+        shadow.classList.remove("hidden");
+        nav.classList.remove("right-[-400px]");
+        nav.classList.add("right-0"); // Usar Tailwind para mover el nav
+        document.querySelectorAll("nav.mobile-nav a").forEach((link, index) => {
+          const anchor = link as HTMLElement;
+          setTimeout(
+            () => {
+              anchor.classList.remove("opacity-0");
+              anchor.classList.add("opacity-1");
+            },
+            200 + index * 50
+          );
+        });
+        isActive = true;
+      }
+    }
+    document.querySelector(".hamburger")!.addEventListener("click", toggle);
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const headerEl = document.querySelector("#landing-header") as HTMLElement;
+    const mainEl = document.getElementById("spacex-main") as HTMLElement;
+
+    let lastScrollTop = 0;
+    mainEl.addEventListener("scroll", () => {
+      const currentScrollTop = mainEl.scrollTop;
+      console.log(currentScrollTop);
+
+      headerEl.classList.toggle(
+        "header-hidden",
+        currentScrollTop > lastScrollTop
+      );
+      lastScrollTop = Math.max(currentScrollTop, 0);
+    });
+  });
+</script>

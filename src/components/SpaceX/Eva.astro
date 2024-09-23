@@ -1,0 +1,114 @@
+---
+import eva from "../../../public/SpaceX/Eva.jpg";
+---
+
+<section
+  class="min-h-[100vh] bg-no-repeat bg-cover bg-center relative flex items-end z-10"
+>
+  <div class="z-20 relative h-full flex flex-col">
+    <header class="flex flex-col">
+      <div class="text-white text-left ml-20 pb-7 font-din-regular">
+        <h1 class="text-[50px] opacity-0 font-medium hidden animate-item">
+          ADVANCING HUMAN SPACEFLIGHT
+        </h1>
+      </div>
+    </header>
+
+    <footer class="flex flex-col flex-grow justify-end pb-32">
+      <div class="flex flex-col mx-20">
+        <a
+          class="button-style border-[3px] opacity-0 font-din-regular border-white text-center px-auto text-sm font-medium text-white px-12 py-[18px] inline-block transition-colors duration-300 w-[180px] animate-item"
+          href="#"
+        >
+          <span> LEARN MORE </span>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <div class="absolute top-0 bottom-0 h-full w-full">
+    <img
+      src={eva.src}
+      class="object-center object-cover h-full w-full"
+      alt="modely"
+    />
+  </div>
+</section>
+
+<style>
+  @keyframes slide-up {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-item {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .button-style:before {
+    content: "";
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    transition: height 0.3s ease-in-out;
+    background-color: white;
+  }
+
+  .button-style:hover:before {
+    height: 100%;
+    top: initial;
+    bottom: 0;
+  }
+
+  .button-style span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button-style:hover span {
+    color: #000;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los elementos con la clase 'animate-item'
+    const elements = document.querySelectorAll(".animate-item");
+
+    // Aplica la animación en cascada con retraso
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.remove("hidden");
+        element.classList.add(
+          "animate-slide-up",
+          `delay-${((index % 3) + 1) * 100}`
+        ); // Usa el índice para aplicar un retraso en cascada
+      }, 100); // Un pequeño retraso inicial para que la animación se vea correctamente
+    });
+  });
+</script>
